@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="/index.css">
+    <title>Tuto VueJS</title>
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="isVisible" v-bind:title="title">  <!-- v-bind lie avec index.js, v- directive de Vue -->
+        {{message}}
+      </p>
+      <input v-model="message"> <!-- lie la variable message à l'input(texte), change sa valeur automatiquement -->
+
+    </input>
+
+
+      <ol>
+        <li v-for="todo in todos"> <!-- répète X fois cette balise avec son contenu v-for permet de boucler -->
+          {{todo.text}}
+        </li>
+      </ol>
+
+      <button v-on:click="isVisible = !isVisible">Toggle</button> <!-- ça se cache et s'affiche -->
+      <div v-if="isVisible"> Je suis visible</div>
+      <button v-on:click="reverseMessage()">
+        Inverser le message
+      </button>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/index.js"></script>
+  </body>
+</html>
